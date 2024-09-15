@@ -1,10 +1,10 @@
 
-import todo from "./todo";
 import { useRef } from "react";
+import axios from "axios";
 
 
 
-function Topbar(using){
+function Topbar({using}, {start}){
     const Title = useRef();
     const Description = useRef();
 
@@ -15,7 +15,7 @@ function Topbar(using){
         "description": Description.current.value, "status": "incompleted"
         };
         axios.post("http://localhost:3000/newtodo",{object});
-        setStart(...start, object);
+        using(...start, object);
         }
 
     return (

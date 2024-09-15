@@ -7,6 +7,7 @@ app.use(express.json())
 
 app.get("/", async (req,res)=>{
     const response = await Todo.find();
+    console.log(response)
     res.json(response)
     })
 

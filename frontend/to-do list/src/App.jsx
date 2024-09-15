@@ -21,7 +21,7 @@ function App() {
   return (
     <div>
       <giverContext.Provider value={setStart}>
-        <Topbar using={setStart}></Topbar>
+        <Topbar using={setStart} start={start}></Topbar>
       </giverContext.Provider>
       <TodoBox arr={start}></TodoBox>
     </div>

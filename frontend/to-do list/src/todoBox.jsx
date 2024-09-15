@@ -4,15 +4,22 @@ import todo from "../components/todo";
 
 
 
-
-function TodoBox (arr){
-    if (arr){
-    arr.map((single) => {
+function TodoBox({arr}) {
+    if (arr.props) {
         return (
-        <div>
-            <todo key={single._id} props={single} />
-        </div>)
-    })}
+            <div>
+                {arr.map((single) => (
+            <div key={single._id}>
+                <Todo props={single} />
+            </div>
+            ))}
+        </div>
+        );
+    } else {
+        return (
+            <p> currently no-todos</p>
+        );
+    }
 }
 
 export default TodoBox;
