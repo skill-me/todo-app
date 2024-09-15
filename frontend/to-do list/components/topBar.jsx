@@ -4,18 +4,18 @@ import { useRef } from "react";
 
 
 
-function Topbar(){
+function Topbar(using){
     const Title = useRef();
     const Description = useRef();
 
 
-    function add_Todo(){
+    function addTodo(){
+        console.log("hello world");
         let object = { "title" : Title.current.value,
         "description": Description.current.value, "status": "incompleted"
-        }
+        };
         axios.post("http://localhost:3000/newtodo",{object});
-        setStart(...start, object)
-        return <todo key={object._id} props={object}/>
+        setStart(...start, object);
         }
 
     return (
@@ -31,7 +31,7 @@ function Topbar(){
                 placeholder='enter the task name' 
                 ref={Description}
             />
-            <button onClick={add_Todo}> Add To-Do</button>
+            <button onClick={addTodo}> Add To-Do</button>
         </div>
     )
 }
