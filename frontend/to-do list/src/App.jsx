@@ -1,19 +1,24 @@
 import { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import todo from "/Users/satyathacker/Downloads/assignments-master/01-js/timepass/To-Do list/frontend/to-do list/components/todo.jsx";
-import Topbar from "/Users/satyathacker/Downloads/assignments-master/01-js/timepass/To-Do list/frontend/to-do list/components/topBar.jsx"
+import Topbar from "./components/TopBar";
 import axios from "axios";
-import TodoBox from './todoBox';
-import { set } from 'mongoose';
+import TodoBox from "./components/TodoBox";
 import { createContext } from "react";
 
 
 
 
 function App() {
-  let [start, setStart] = useState(async ()=>{
-    let response = await axios.get("http://localhost:3000/")
-    return response});
+
+  let [start, setStart] = useState([]);
+
+
+  useEffect(()=>{
+    async function fetch (){
+      let response = await axios.get("http://localhost:3000/");
+      setStart(response.data);
+    } fetch()}, []);
+
+
 
   const giverContext = createContext(setStart);
 
@@ -21,7 +26,7 @@ function App() {
   return (
     <div>
       <giverContext.Provider value={setStart}>
-        <Topbar using={setStart} start={start}></Topbar>
+        <Topbar using={setStart} get={start}></Topbar>
       </giverContext.Provider>
       <TodoBox arr={start}></TodoBox>
     </div>

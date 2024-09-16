@@ -1,4 +1,4 @@
-function todo(props){
+function Todo(props){
     return (
         <div>
             <h1> 
@@ -11,6 +11,6 @@ function todo(props){
     )
 }
 
-export default todo;
+export default Todo;
 
 

@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 
-function Topbar({using}, {start}){
+function Topbar({using, get}){
     const Title = useRef();
     const Description = useRef();
 
@@ -14,8 +14,8 @@ function Topbar({using}, {start}){
         let object = { "title" : Title.current.value,
         "description": Description.current.value, "status": "incompleted"
         };
-        axios.post("http://localhost:3000/newtodo",{object});
-        using(...start, object);
+        axios.post("http://localhost:3000/new",object);
+        using(...get, object);
         }
 
     return (

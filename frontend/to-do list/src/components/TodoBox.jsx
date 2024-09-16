@@ -1,6 +1,5 @@
-import { useState } from "react";
-import axios from "axios";
-import todo from "../components/todo";
+
+import Todo from "./Todo";
 
 
 
@@ -15,10 +14,10 @@ function TodoBox({arr}) {
             ))}
         </div>
         );
-    } else {
-        return (
-            <p> currently no-todos</p>
-        );
+    // } else {
+    //     return (
+    //         <p> currently no-todos</p>
+    //     );
     }
 }
 
